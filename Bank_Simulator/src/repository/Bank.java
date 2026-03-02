@@ -1,6 +1,8 @@
 package repository;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,5 +22,9 @@ public class Bank {
 	
 	public void addTransaction(Transaction transaction) {
 		transactions.add(transaction);
+	}
+	
+	public Collection<Account> getAllAccounts() {
+	    return Collections.unmodifiableCollection(accounts.values());
 	}
 }

@@ -6,11 +6,16 @@ import entities.Account;
 import entities.Transaction;
 import repository.Bank;
 
-public class TransactionServiceImp {
+public class TransactionServiceImp implements TransactionService{
 	
 	private Transaction transaction;
 	private Bank bank;
 	
+	
+	public TransactionServiceImp(Bank bank) {
+		this.bank = bank;
+	}
+
 	public void transfer(Account from, Account to, Double amount) {
 		from.withdraw(amount);
 		to.deposit(amount);

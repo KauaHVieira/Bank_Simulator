@@ -12,6 +12,10 @@ public class AccountService {
 	
 	private Bank bank;
 	
+	public AccountService(Bank bank) {
+		this.bank = bank;
+	}
+	
 	public Account createCurrentAccount(Integer accountNumber, String accountHolder, Double accountBalance, LocalDate dateOfCreation, Customer customer) {
 		Account account = new CurrentAccount(
 				accountNumber, 
@@ -25,7 +29,7 @@ public class AccountService {
 		return account;
 	}
 	
-	public void CreateSavingsAccount(Integer accountNumber, String accountHolder, Double accountBalance, LocalDate dateOfCreation,Customer customer, Double withdrawLimit) {
+	public void createSavingsAccount(Integer accountNumber, String accountHolder, Double accountBalance, LocalDate dateOfCreation,Customer customer, Double withdrawLimit) {
 		Account account = new SavingsAccount(
 				accountNumber, 
 				accountHolder, 

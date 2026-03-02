@@ -23,8 +23,8 @@ public class SavingsAccount extends Account implements Comparable<SavingsAccount
 	}
 	
 	@Override
-	public Double income(Double amount, Double fees) {
-		return amount * fees;
+	public Double income(Double amount, Double interestRate) {
+		return amount * interestRate;
 	}
 
 	@Override

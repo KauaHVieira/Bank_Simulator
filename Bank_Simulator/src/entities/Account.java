@@ -15,8 +15,8 @@ public abstract class Account {
 		this.accountNumber = accountNumber;
 		this.accountHolder = accountHolder;
 		this.accountBalance = accountBalance;
-		this.customer = customer;
 		this.dateOfCreation = dateOfCreation;
+		this.customer = customer;
 	}
 
 
@@ -47,5 +47,14 @@ public abstract class Account {
 	public void deposit(Double amount) {
 		accountBalance += amount;
 	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Account Number: " + accountNumber + "\n");
+		sb.append("Account Holder: " + accountHolder + "\n");
+		sb.append("Account Balance: " + accountBalance + "\n");
+		sb.append("Date of Creation: " + dateOfCreation + "\n");
+		return sb.toString();
+		}
 }
 	
