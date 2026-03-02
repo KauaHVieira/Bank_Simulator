@@ -17,4 +17,8 @@ public class Bank {
 	public void addAccount(Integer accountNumber, Account account) {
 		accounts.put(accountNumber, account);
 	}
+	
+	public void addTransaction(Transaction transaction) {
+		transactions.add(transaction);
+	}
 }

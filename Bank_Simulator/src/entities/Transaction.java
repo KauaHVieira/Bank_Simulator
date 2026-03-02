@@ -6,15 +6,17 @@ public class Transaction {
 	
 	private Double transactionValue;
 	private String transactionDescription;
-	private Integer buyerNumber;
-	private Integer sellerNumber;
+	private Account buyer;
+	private Account seller;
 	private LocalDate transactionDate;
 	
-	public Transaction(Double transactionValue, String transactionDescription, Integer buyerNumber,Integer sellerNumber, LocalDate transactionDate) {
+	
+	
+	public Transaction(Double transactionValue, String transactionDescription, Account buyer, Account seller,LocalDate transactionDate) {
 		this.transactionValue = transactionValue;
 		this.transactionDescription = transactionDescription;
-		this.buyerNumber = buyerNumber;
-		this.sellerNumber = sellerNumber;
+		this.buyer = buyer;
+		this.seller = seller;
 		this.transactionDate = transactionDate;
 	}
 
@@ -24,9 +26,9 @@ public class Transaction {
 
 	public void setTransactionDescription(String transactionDescription) {this.transactionDescription = transactionDescription;}
 
-	public Integer getBuyerNumber() {return buyerNumber;}
+	public Account getBuyer() {return buyer;}
 
-	public Integer getSellerNumber() {return sellerNumber;}
+	public Account getSeller() {return seller;}
 
 	public LocalDate getTransactionDate() {return transactionDate;}
 

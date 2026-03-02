@@ -2,7 +2,7 @@ package entities;
 
 import java.time.LocalDate;
 
-public class Account {
+public abstract class Account {
 	
 	private Integer accountNumber;
 	private String accountHolder;
@@ -10,7 +10,6 @@ public class Account {
 	private LocalDate dateOfCreation;
 	
 	private Customer customer;
-	
 	
 	public Account(Integer accountNumber, String accountHolder, Double accountBalance, LocalDate dateOfCreation ,Customer customer) {
 		this.accountNumber = accountNumber;
@@ -22,7 +21,6 @@ public class Account {
 
 
 	public Integer getAccountNumber() { return accountNumber; }
-
 
 	public void setAccountNumber(Integer accountNumber) { this.accountNumber = accountNumber; }
 
@@ -44,6 +42,10 @@ public class Account {
 	
 	public Double income(Double amount, Double fees) {
 		return amount * fees;
+	}
+	
+	public void deposit(Double amount) {
+		accountBalance += amount;
 	}
 }
 	

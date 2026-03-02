@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import exceptions.WithdrawLimitException;
 
-public class SavingsAccount extends Account{
+public class SavingsAccount extends Account implements Comparable<SavingsAccount>{
 	
 	private Double withdrawLimit;
 
@@ -25,6 +25,11 @@ public class SavingsAccount extends Account{
 	@Override
 	public Double income(Double amount, Double fees) {
 		return amount * fees;
+	}
+
+	@Override
+	public int compareTo(SavingsAccount account) {
+		return account.getAccountHolder().compareTo(account.getAccountHolder());
 	}
 
 }
