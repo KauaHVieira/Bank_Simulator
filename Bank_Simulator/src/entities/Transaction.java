@@ -6,17 +6,17 @@ public class Transaction {
 	
 	private Double transactionValue;
 	private String transactionDescription;
-	private Account buyer;
-	private Account seller;
+	private Account payer;
+	private Account receiver;
 	private LocalDate transactionDate;
 	
 	
 	
-	public Transaction(Double transactionValue, String transactionDescription, Account buyer, Account seller,LocalDate transactionDate) {
+	public Transaction(Double transactionValue, String transactionDescription, Account payer, Account receiver,LocalDate transactionDate) {
 		this.transactionValue = transactionValue;
 		this.transactionDescription = transactionDescription;
-		this.buyer = buyer;
-		this.seller = seller;
+		this.payer = payer;
+		this.receiver = receiver;
 		this.transactionDate = transactionDate;
 	}
 
@@ -26,15 +26,23 @@ public class Transaction {
 
 	public void setTransactionDescription(String transactionDescription) {this.transactionDescription = transactionDescription;}
 
-	public Account getBuyer() {return buyer;}
+	public Account getPayer() {return payer;}
 
-	public Account getSeller() {return seller;}
+	public Account getReceiver() {return receiver;}
 
 	public LocalDate getTransactionDate() {return transactionDate;}
 
 	public void setTransactionDate(LocalDate transactionDate) {this.transactionDate = transactionDate;}
 	
-	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Transaction Value: " + String.format("%.2f", transactionValue) + "\n");
+		sb.append("Transaction Description: " + transactionDescription + "\n");
+		sb.append("Transaction Payer: " +  payer.getAccountHolder() + "\n");
+		sb.append("Transaction Receiver: " + receiver.getAccountHolder() + "\n");
+		sb.append("Trransaction Date: " + transactionDate);
+		return sb.toString();
+	}
 	
 	
 }

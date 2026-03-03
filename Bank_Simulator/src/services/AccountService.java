@@ -3,6 +3,7 @@ package services;
 import java.time.LocalDate;
 
 import entities.Account;
+import entities.AccountType;
 import entities.CurrentAccount;
 import entities.Customer;
 import entities.SavingsAccount;
@@ -16,11 +17,12 @@ public class AccountService {
 		this.bank = bank;
 	}
 	
-	public Account createCurrentAccount(Integer accountNumber, String accountHolder, Double accountBalance, LocalDate dateOfCreation, Customer customer) {
+	public Account createCurrentAccount(Integer accountNumber, String accountHolder, Double accountBalance, AccountType accountType ,LocalDate dateOfCreation, Customer customer) {
 		Account account = new CurrentAccount(
 				accountNumber, 
 				accountHolder, 
-				accountBalance, 
+				accountBalance,
+				accountType,
 				LocalDate.now(), 
 				customer);
 		bank.addAccount(accountNumber, account);
@@ -29,11 +31,12 @@ public class AccountService {
 		return account;
 	}
 	
-	public void createSavingsAccount(Integer accountNumber, String accountHolder, Double accountBalance, LocalDate dateOfCreation,Customer customer, Double withdrawLimit) {
+	public void createSavingsAccount(Integer accountNumber, String accountHolder, Double accountBalance, AccountType accountType , LocalDate dateOfCreation,Customer customer, Double withdrawLimit) {
 		Account account = new SavingsAccount(
 				accountNumber, 
 				accountHolder, 
-				accountBalance, 
+				accountBalance,
+				accountType,
 				LocalDate.now(), 
 				customer, 
 				withdrawLimit);

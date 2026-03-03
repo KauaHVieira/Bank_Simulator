@@ -7,14 +7,16 @@ public abstract class Account {
 	private Integer accountNumber;
 	private String accountHolder;
 	private Double accountBalance;
+	private AccountType accountType;
 	private LocalDate dateOfCreation;
 	
 	private Customer customer;
 	
-	public Account(Integer accountNumber, String accountHolder, Double accountBalance, LocalDate dateOfCreation ,Customer customer) {
+	public Account(Integer accountNumber, String accountHolder, Double accountBalance,  AccountType accountType , LocalDate dateOfCreation ,Customer customer) {
 		this.accountNumber = accountNumber;
 		this.accountHolder = accountHolder;
 		this.accountBalance = accountBalance;
+		this.accountType = accountType;
 		this.dateOfCreation = dateOfCreation;
 		this.customer = customer;
 	}
@@ -36,6 +38,8 @@ public abstract class Account {
 
 	public void setDateOfCreation(LocalDate dateOfCreation) { this.dateOfCreation = dateOfCreation; }
 	
+	public AccountType getAccountType() { return accountType; }
+	
 	public void withdraw(Double amount) {
 		accountBalance -= amount;
 	}
@@ -50,11 +54,15 @@ public abstract class Account {
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append("Account Type: " + accountType + "\n");
 		sb.append("Account Number: " + accountNumber + "\n");
 		sb.append("Account Holder: " + accountHolder + "\n");
-		sb.append("Account Balance: " + accountBalance + "\n");
+		sb.append("Account Balance: " + String.format("%.2f", accountBalance) + "\n");
 		sb.append("Date of Creation: " + dateOfCreation + "\n");
 		return sb.toString();
 		}
+
+
+	
 }
 	
